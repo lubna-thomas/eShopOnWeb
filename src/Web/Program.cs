@@ -18,8 +18,14 @@ using Microsoft.eShopWeb.Web;
 using Microsoft.eShopWeb.Web.Configuration;
 using Microsoft.eShopWeb.Web.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.ApplicationInsights;
 
 var builder = WebApplication.CreateBuilder(args);
+// The following line enables Application Insights telemetry collection.
+builder.Services.AddApplicationInsightsTelemetry
+
+
+
 builder.Logging.AddConsole();
 
 if (builder.Environment.IsDevelopment() || builder.Environment.EnvironmentName == "Docker"){
